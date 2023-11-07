@@ -3,12 +3,19 @@ import React from 'react'
 import { productos } from '../datos/productos'
 import Header from '../componentes/Header'
 import { colores } from '../temas/colores'
+import { AntDesign } from '@expo/vector-icons';
+import { useSelector } from 'react-redux'
 
-const DetalleProductos = ({navigation}) => {
+const DetalleProductos = ({ navigation }) => {
+    
     const productoEjemplo = productos[0];
     
-    const alertaChiste = ()=>{
-        Alert.alert('Nop', 'Aun no se puede comprar', [
+    const prodSeleccionado = useSelector(
+        (state) => state.storeSlice.productoSeleccionado
+    )
+    
+    const alertaChiste = () => {
+        Alert.alert('Nops', 'Aun no se puede comprar!', [
             {
                 text: 'Cerrar',
                 style: 'cancel',
@@ -16,14 +23,14 @@ const DetalleProductos = ({navigation}) => {
         ])
     }
 
-    const alertaCompra = ()=>{
-        Alert.alert('Comprar', '¿Esta seguro de comprar este producto?', [
+    const alertaCompra = () => {
+        Alert.alert('Comprar', '¿Esta seguro de comprar este libro?', [
             {
                 text: 'No',
                 style: 'cancel',
             },
             {
-                text: 'Si', onPress: ()=> alertaChiste()
+                text: 'Si', onPress: () => alertaChiste()
             }
         ])
     }
@@ -31,8 +38,8 @@ const DetalleProductos = ({navigation}) => {
     return (
         <ScrollView>
             <Header titulo={'Detalle del Libro'} />
-            <Pressable onPress={()=> navigation.goBack()}>
-                <Text>Ir atras...</Text>
+            <Pressable onPress={() => navigation.goBack()}>
+                <AntDesign name="leftsquareo" size={36} color={colores.celeste} />
             </Pressable>
             <View style={styles.contenedor}>
 
@@ -52,7 +59,7 @@ const DetalleProductos = ({navigation}) => {
             </View>
             <Text style={styles.precio}>Precio: ${productoEjemplo.Precio}</Text>
             <View style={styles.contenedorComprar}>
-                <Pressable onPress={()=> alertaCompra()} style={styles.botonComprar}>
+                <Pressable onPress={() => alertaCompra()} style={styles.botonComprar}>
                     <Text style={styles.textoComprar}>Comprar</Text>
                 </Pressable>
             </View>
@@ -103,9 +110,10 @@ const styles = StyleSheet.create({
         padding: 5,
         alignItems: 'center',
         borderColor: colores.oscuro,
-        backgroundColor: colores.claro,    
+        backgroundColor: colores.claro,
+        marginBottom: 25,
     },
-    contenedorComprar:{
+    contenedorComprar: {
         alignItems: 'center',
         marginVertical: 10,
     }

@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { categorias } from "../../datos/categorias";
 import { productos } from "../../datos/productos";
-import { useGetCategoriasQuery } from "../../servicios/expoApi";
 
 const storeSlice = createSlice({
     name: 'storeSlice',
@@ -25,5 +24,5 @@ const storeSlice = createSlice({
         } 
     },
 })
-export const { setCategoria } = storeSlice.actions;
+export const { setCategoria, setProductoSeleccionado } = storeSlice.actions;
 export default storeSlice.reducer;
