@@ -73,8 +73,6 @@ const Perfil = ({ navigation }) => {
                 base64: true,
             });
 
-            // console.log('Esto es lo que paso', result)
-
             if (!result.canceled) {
                 await putImagen({
                     image: `data:image/jpeg;base64,${result.assets[0].base64}`,

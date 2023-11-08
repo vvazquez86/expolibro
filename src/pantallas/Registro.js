@@ -13,7 +13,6 @@ const Registro = ({ navigation }) => {
     const crearUsuario = async ()=>{
         try {
             const response = await createUserWithEmailAndPassword(firebase_auth, email, pass)
-            // console.log(response)
             navigation.navigate('ingreso')
         } catch (error) {
             console.log('Error al crear la cuenta ', error)

@@ -21,8 +21,6 @@ const Ingreso = ({ navigation }) => {
             AsyncStorage.setItem('mailUsuario', response.user.email)
             dispatch(setUser(response.user.email));
             dispatch(setIdToken(response._tokenResponse.idToken));
-
-            // console.log(response)
         } catch (error) {
             console.log('Error al iniciar seción ', error);
         }

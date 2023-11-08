@@ -15,8 +15,6 @@ const MainNav = () => {
             try {
                 const mailUsuario = await AsyncStorage.getItem('mailUsuario');
                 mailUsuario ? setchequearUsuario(mailUsuario) : setchequearUsuario(user)
-                console.log('async', mailUsuario)
-                console.log(user)
             } catch (e) {
                 console.log('Ocurrio un error: ', e)
             }

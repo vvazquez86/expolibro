@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, FlatList, Image, SafeAreaView, Pressable, ActivityIndicator } from 'react-native'
+import { StyleSheet, FlatList,SafeAreaView, Pressable, ActivityIndicator } from 'react-native'
 import React from 'react'
 import Buscador from '../componentes/Buscador'
 import Header from '../componentes/Header'
